@@ -1,0 +1,8 @@
+model Post {
+  id        Int      @id @default(autoincrement()) // Primary key
+  createdAt DateTime @default(now())              // Date and time of creation
+  updatedAt DateTime @updatedAt                   // Date and time of last update
+  published Boolean  @default(false)              // Published status
+  title     String                                // Title of the post
+  content   Json?                                 // Content of the post, nullable and JSON type
+}

@@ -1,0 +1,14 @@
+datasource db {
+  provider = "postgresql" // Change to your SQL provider
+  url      = env("DATABASE_URL") // Update with your SQL connection string
+}
+
+model Post {
+  id            Int      @id @default(autoincrement())
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  published     Boolean  @default(false)
+  title         String
+  content       String   // For simple text content
+  contentJson   Json    // Optional field for complex content structures, can be null
+}
