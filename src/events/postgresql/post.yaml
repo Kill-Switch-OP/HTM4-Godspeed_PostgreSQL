@@ -1,8 +1,8 @@
-# ONE
-http.get./mongo/post/{id}:
+# Fetch Post (GET)
+http.get./sql/post/{id}:
   summary: Fetch Post
   description: Fetch Post from database
-  fn: com.biz.mongo.post.one
+  fn: com.biz.sql.post.one
   params:
     - name: id
       in: path
@@ -15,32 +15,32 @@ http.get./mongo/post/{id}:
         schema:
           type: object
 
-# CREATE
-http.post./mongo/post:
+# Create Post (POST)
+http.post./sql/post:
   summary: Create a new Post
-  description: Create Post from database
-  fn: com.biz.mongo.post.create
+  description: Create Post in database
+  fn: com.biz.sql.post.create
   body:
     content:
       application/json:
         schema:
-          $ref: '#/definitions/mongo/Post'
+          $ref: '#/definitions/sql/Post'
   responses:
     content:
       application/json:
         schema:
           type: object
 
-# UPDATE
-http.put./mongo/post/{id}:
+# Update Post (PUT)
+http.put./sql/post/{id}:
   summary: Update a Post
-  description: Update Post from database
-  fn: com.biz.mongo.post.update
+  description: Update Post in database
+  fn: com.biz.sql.post.update
   body:
     content:
       application/json:
         schema:
-          $ref: '#/definitions/mongo/Post'
+          $ref: '#/definitions/sql/Post'
   params:
     - name: id
       in: path
@@ -53,11 +53,11 @@ http.put./mongo/post/{id}:
         schema:
           type: object
 
-# DELETE
-http.delete./mongo/post/{id}:
+# Delete Post (DELETE)
+http.delete./sql/post/{id}:
   summary: Delete a Post
   description: Delete Post from database
-  fn: com.biz.mongo.post.delete
+  fn: com.biz.sql.post.delete
   params:
     - name: id
       in: path
@@ -70,11 +70,11 @@ http.delete./mongo/post/{id}:
         schema:
           type: object
 
-# SEARCH
-http.post./mongo/post/search:
-  summary: Fetch multiple Post
-  description: Fetch multiple Post from database
-  fn: com.biz.mongo.post.search
+# Search Posts (POST)
+http.post./sql/post/search:
+  summary: Fetch multiple Posts
+  description: Fetch multiple Posts from database
+  fn: com.biz.sql.post.search
   body:
     content:
       application/json:
@@ -85,4 +85,3 @@ http.post./mongo/post/search:
       application/json:
         schema:
           type: array
-
